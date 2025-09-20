@@ -1,0 +1,2 @@
+# This file keeps the public directory in git
+# The public directory is required by Vercel even for API-only projects
