@@ -8,8 +8,10 @@
     "build": "echo 'No build step needed for serverless functions'"
   },
   "dependencies": {
-    "ai": "^3.0.0",
-    "openai": "^4.0.0"
+    "@ai-sdk/openai": "^0.0.66",
+    "@vercel/node": "^3.0.0",
+    "ai": "^3.4.32",
+    "openai": "^4.67.1"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
