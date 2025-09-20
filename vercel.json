@@ -1,7 +1,0 @@
-{
-  "functions": {
-    "api/hal.ts": {
-      "runtime": "@vercel/node@18.x"
-    }
-  }
-}
