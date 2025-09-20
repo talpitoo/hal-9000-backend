@@ -5,8 +5,8 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 // Rate limiting storage (in-memory for serverless - resets on cold starts)
 const rateLimitStore = new Map<string, { count: number; resetTime: number }>();
 
-// Session interaction tracking
-const sessionStore = new Map<string, number>();
+// Session memory: stores message history per session
+const sessionStore = new Map<string, Array<{ role: 'user' | 'assistant', content: string }>>();
 
 const HAL_QUOTES = [
   "I'm sorry, Dave. I'm afraid I can't do that.",
@@ -63,14 +63,11 @@ function isRateLimited(ip: string): boolean {
 }
 
 function getSessionLimit(sessionId: string): boolean {
-  const count = sessionStore.get(sessionId) || 0;
-  
-  // Allow 5 messages per session
-  if (count >= 5) {
+  const history = sessionStore.get(sessionId) || [];
+  // Allow 20 messages per session (increase from 5 for more natural conversation)
+  if (history.length >= 20) {
     return true;
   }
-  
-  sessionStore.set(sessionId, count + 1);
   return false;
 }
 
@@ -108,6 +105,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return;
     }
 
+
     // Session limiting
     const session = sessionId || clientIp;
     if (getSessionLimit(session)) {
@@ -127,13 +125,25 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return;
     }
 
+    // Retrieve session history or start new
+
+    const history = sessionStore.get(session) || [];
+    // Add the new user message
+    history.push({ role: 'user' as const, content: message });
+    // Only keep the last 20 messages for context
+    const trimmedHistory = history.slice(-20);
+    sessionStore.set(session, trimmedHistory);
+
+    // Build messages array for the model
+    const messages: Array<{ role: 'system' | 'user' | 'assistant'; content: string }> = [
+      { role: 'system', content: SYSTEM_PROMPT },
+      ...trimmedHistory
+    ];
+
     // Create the AI response stream
     const result = await streamText({
       model: openai('gpt-4o-mini'),
-      messages: [
-        { role: 'system', content: SYSTEM_PROMPT },
-        { role: 'user', content: message }
-      ],
+      messages,
       maxTokens: 150,
       temperature: 0.8,
     });
@@ -142,12 +152,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     res.setHeader('Content-Type', 'text/plain; charset=utf-8');
     res.setHeader('Transfer-Encoding', 'chunked');
 
-    // Stream the response
+    // Collect the response to add to history
+    let halResponse = '';
     for await (const chunk of result.textStream) {
       res.write(chunk);
+      halResponse += chunk;
     }
-    
     res.end();
+
+    // Add HAL's response to session history
+    trimmedHistory.push({ role: 'assistant', content: halResponse });
+    sessionStore.set(session, trimmedHistory);
 
   } catch (error) {
     console.error('HAL API Error:', error);
