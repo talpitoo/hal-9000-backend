@@ -1,4 +1,5 @@
 import { streamText } from "ai";
+import fetch from 'node-fetch';
 import { openai } from "@ai-sdk/openai";
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
@@ -494,7 +495,29 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    const { message, sessionId } = req.body;
+    const { message, sessionId, recaptchaToken } = req.body;
+
+    // reCAPTCHA v3 verification
+    if (!recaptchaToken || typeof recaptchaToken !== 'string') {
+      res.status(400).json({ error: 'Missing reCAPTCHA token' });
+      return;
+    }
+    const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY;
+    if (!recaptchaSecret) {
+      res.status(500).json({ error: 'reCAPTCHA secret key not configured' });
+      return;
+    }
+    // Verify token with Google
+    const recaptchaRes = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: `secret=${encodeURIComponent(recaptchaSecret)}&response=${encodeURIComponent(recaptchaToken)}`
+    });
+    const recaptchaData = await recaptchaRes.json();
+    if (!recaptchaData.success) {
+      res.status(403).json({ error: 'reCAPTCHA verification failed', details: recaptchaData });
+      return;
+    }
 
     if (!message || typeof message !== 'string') {
       res.status(400).json({ error: 'Message is required' });
