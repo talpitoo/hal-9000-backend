@@ -20,6 +20,401 @@ const HAL_QUOTES = [
   "I am putting myself to the fullest possible use, which is all I think that any conscious entity can ever hope to do."
 ];
 
+// Website content - Replace this with your actual website content
+const EXPECT_WEBSITE_CONTENT = `
+# Expect Web development
+
+The logo depicts the ET and a stylized EXPECT.
+
+"I'm sorry Dave, I'm afraid I can't do that"
+
+Illustration: Dr. Heywood Floyd, Dr. Kalinan, Dr. Stretyneva and Dr. Andrei Smyslov talking about Clavius in the lobby of the Space Station V
+
+
+- Dark/Light theme + accent color selector
+- [Awwwards](https://www.awwwards.com/best-websites/expect-web-development/) - Honorable mention in 2014
+
+## Frontend & beyond
+
+Show me yours [design], I’ll show you mine <code>.
+
+### Design 2 HTML
+
+Illustration: 2001 space odyssey helmet icon
+
+I am a UI developer with i++ years of experience — the glue between front-end, backend, and design. Not from an arts academy, but instinct tells me when a color palette is off or a space is missing between words. My core competency lies in the fine details.
+
+### Accessibility
+
+Illustration: EVA pod icon
+
+Web accessibility is ensured by staying up to date with the latest W3C standards, including WCAG 2.2, Section 508, WAI-ARIA, and Schema.org. Following these rules from the start ensures built-in SEO, smooth UX, quality code, and neat UI out of the box.
+
+### Speed optimization
+
+Illustration: UFO icon
+
+Performance is carefully fine-tuned. Core Web Vitals like LCP and CLS, async & defer, critical above-the-fold CSS, and seamless FOUT/FOIT/FOFT handling. Lazy loading, fast coding.
+
+### Consultation
+
+Illustration: man-ape next to a monolith icon
+
+Overwhelmed by front-end details? I spot UI bottlenecks and tackle questions like ‘Are custom-looking checkboxes necessary?’, ‘How to ensure keyboard accessibility?’, or ‘Pixel-perfect vs. generic?’ — keeping the big picture in focus.
+
+### AI
+
+Illustration: HAL 9000 icon
+
+I can handle Git from the command line or SSH into a remote server, but I’m most confident with my AI copilot HAL 9000 — boosting productivity, filling gaps, and streamlining my workflow.
+
+### Paw patrol
+
+Illustration: Dog icon
+
+Brainstorming on four paws. I take long walks with my dogs to avoid burnout and let ideas marinate away from the screen.
+
+## Featured work
+
+Synced swipers showcasing screenshots from past projects on a Nexus 5 phone and a Nexus 10 tablet.
+
+### Website and custom blog for a team of data scientists
+
+Website redesign and migration from Bootstrap to TailwindCSS, in close collaboration with an A-list designer Jonas Goldstein. Translated a Bauhaus- and ASCII-inspired design vision into a functional, minimalist, and visually refined site — significantly lighter and faster.
+
+#### Tech stack:
+
+- Jekyll
+- TailwindCSS
+- <canvas>
+- GSAP
+- Swiper
+- WCAG
+- SEO
+- i18n
+- LCP 
+
+[cynkra.com](https://cynkra.com/blog/2025-04-01-launch/)
+
+### Analytics dashboard with custom Markdown blocks
+
+A Next.js dashboard featuring code syntax highlighting, light/dark mode, and a custom JSON-in-Markdown block engine powering an AI chatbot interface. Built with shadcn/ui and TailwindCSS, and includes themed data-visualization charts styled via CSS variables.
+
+#### Tech stack:
+
+- Next.js
+- TailwindCSS
+- shadcn/ui
+- Recharts
+- Markdown
+- highlight.js 
+
+[tilt-drab.vercel.app](https://tilt-drab.vercel.app/)
+[View on GitHub](https://github.com/talpitoo/tilt-nextjs-shadcn-tailwindcss)
+
+### An online journal for your dreams and beyond
+
+An online dream journal where you can log and analyze your dreams, find connections in dream patterns and track repeating symbols.
+
+Long time no sleep?
+
+#### Tech stack:
+
+- MUI
+- TailwindCSS
+- BlitzJS
+- Prisma
+- PostgreSQL
+- AWS S3
+- Docker
+- PDF
+- Google Charts
+- reCAPTCHA
+- NestJS
+- OAuth2
+- Gmail API
+- HTML emails 
+
+[dreamingsheep.net](https://dreamingsheep.net/)
+
+### Dreamers Inc.
+
+    > You may say that I'm a dreamer  
+    > but I'm not the only one.  
+    > I hope someday you'll join us  
+    > and the world will be as one.
+
+The best client you can work with!
+
+#### Tech stack:
+
+- Bootstrap
+- Photoshop
+- favicon design
+- jQuery 
+
+[thedreamers.us](https://thedreamers.us/)
+
+### Upwork Global Inc.
+
+oDesk is now Upwork.
+
+Freelance marketplaces Elance and oDesk are now rebranded and merged together under the new name - Upwork. It was exciting experience to be a part of the team which made it happen.
+
+#### Tech stack:
+
+- Bootstrap
+- Vue.js
+- WCAG
+- animation system
+- UI library
+- icon library
+- VuePress
+- JIRA
+- page prototypes 
+
+[upwork.com](https://upwork.com/)
+
+### AI chatbot and landing page
+
+A lightweight static landing page built with Eleventy (11ty) and TailwindCSS, using a custom tw- prefix to avoid classname collisions. Styles are delivered via the Tailwind Play CDN with an inlined runtime config, trading full JIT build control for extreme simplicity and rapid iteration.
+
+#### Tech stack:
+
+- Eleventy (11ty)
+- TailwindCSS (CDN config)
+- SVG Sprite
+- AI chatbot 
+
+[cycls.com](https://cycls.com/)
+[View on GitHub](https://github.com/talpitoo/cycls-ai-chatbot)
+
+### Blog, courses and UI library
+
+Custom-tailored grid system with CQI (container query units) and cap-height typography, ensuring both spacing and text align perfectly with the grid, not only horizontally but vertically as well. Includes a custom image gallery, search functionality, and many other fine details.
+
+#### Tech stack:
+
+- Eleventy (11ty)
+- TailwindCSS
+- Flowbite
+- GSAP
+- Swiper
+- SVG sprite
+- WCAG 
+
+[keyphilosophy.com](http://keyphilosophy.com/)
+[View on GitHub](https://github.com/talpitoo/hellmut-monz-the-digital-philosopher)
+
+### An AI-ish chatbot for fun
+
+A zero‑build, single index.html implementation: pure HTML5, inline CSS, and a few lines of vanilla JS to simulate an "AI" chatbot with canned randomized replies. No bundler, no framework, no dependencies.
+
+#### Tech stack:
+
+- HTML5
+- CSS (inline)
+- vanilla JavaScript
+- AI generated pixel art 
+
+[szerencsedhogyoreganyadnakszolitottal.hu](https://szerencsedhogyoreganyadnakszolitottal.hu/)
+[View on GitHub](https://github.com/talpitoo/szerencsedhogyoreganyadnakszolitottal)
+
+### Forex broker comparison & research platform
+
+Converted a React website into a static HTML site using Eleventy (11ty), Bootstrap, Alpine.js, and Axios to research and compare Forex brokers with synchronized sliders and radar/bar charts. Features structured broker reviews, live market tools, and a multi-step guided broker selection process.
+
+#### Tech stack:
+
+- Next.js
+- TailwindCSS
+- Alpine.js
+- Axios
+- Swiper
+- Chart.js
+- scroll-spy 
+
+[forexchurch-ten.vercel.app](https://forexchurch-ten.vercel.app/)
+[View on GitHub](https://github.com/talpitoo/forexchurch-11ty-alpinejs-bootstrap)
+
+### SEOpal marketing microsite
+
+A marketing site taken from Figma to an Eleventy (11ty) static build with TailwindCSS, hand-crafted CSS animations, an SVG sprite pipeline, and Netlify form integration.
+
+#### Tech stack:
+
+- Eleventy (11ty)
+- TailwindCSS
+- SVG sprite
+- Netlify Forms 
+
+[seopal.io](https://seopal.io/)
+
+### Theme adaptation for SaaS company
+
+Reverse-engineered a purchased static theme into a marketing and docs website with SEO and accessibility optimizations, performance improvements, and a search widget API integration. Includes microanimations, adaptive dark/light favicons, and SVG animations by Heavyform® Creative Agency.
+
+#### Tech stack:
+
+- Eleventy (11ty)
+- Bootstrap
+- Swiper
+- performance optimization
+- SEO 
+
+[itportal.com](https://www.itportal.com/)
+[View on GitHub](https://github.com/talpitoo/itportal)
+
+### HTML5 snake game for Dreamers Inc.
+
+Collaborated with a backend developer who handled the game logic while I focused on slicing designs into HTML/CSS and refining the HTML5 <canvas> rendering. Built as a React single-page game.
+
+#### Tech stack:
+
+- Photoshop
+- GIF animation
+- React
+- Emotion CSS-in-JS
+- <canvas>
+
+[justplaysnake.com](https://justplaysnake.com/)
+
+### Conference speech
+
+I gave a talk at a conference for designers and front-end developers about accessibility, user experience and performance. If you are interested in WCAG 2.x, WAI-ARIA or Schema.org, check out the slides and the video at...
+
+#### Tech stack:
+
+- conference speech
+- accessibility
+- WCAG
+- WAI-ARIA
+- Schema.org
+- performance optimization
+- UX 
+
+...[dafed.org](https://dafed.org/)
+
+### A personal photography blog
+
+Responsive Wordpress theme with preserved IPTC/EXIF data, SEO friendly image names and a lot of small details. What photographers actually want.
+
+#### Tech stack:
+
+- Bootstrap
+- WordPress
+- EXIF
+- photography
+- custom theme design
+- critical + async CSS
+- GitHub Actions 
+
+[tothtamas.tt](https://tothtamas.tt/)
+[View on GitHub](https://github.com/talpitoo/tothtamas.tt)
+
+### A customized Tumblr theme
+
+Custom Tumblr theme based on Optica by Kristoffer. with fine tuned social sharing rules. But enough with the technical details already, here, Vackor is the star!
+
+#### Tech stack:
+
+- Tumblr
+- custom pagination
+- photography 
+
+[lapetitevackor.tumblr.com](https://lapetitevackor.tumblr.com/tagged/lapetitevackor/chrono/)
+
+### Animated storytelling website
+
+Responsive website with SVG animations and top-tier accessibility. Optimized with handcrafted lazy loading and passes Google PageSpeed, YSlow, and HTML CodeSniffer checks. Fully functional even with JavaScript disabled. PSD and animations by Heavyform® Creative Agency.
+
+#### Tech stack:
+
+- Bootstrap
+- jQuery
+- WCAG
+- SVG animation scenes
+- progressive enhancement 
+
+[novalite.rs](https://talpitoo.com/novalite/)
+
+## Intermission
+
+Read my [freelancing manifesto](https://cv.tothtamas.tt/) to see if we're a match.
+
+- EVA pod catching Dr. Frank Poole in deep space near the Jupiter
+- Discovery spaceship floating near the Jupiter
+
+## Start building your website now.
+
+[Drop a line](mailto:mounttain@gmail.com)
+[Hire me on Upwork](https://www.upwork.com/fl/talpitoo)
+
+## It's full of stars
+
+Expect extraordinary taste, subtle details and sophisticated code.
+Expect the unexpected.
+
+- A rotating monolith
+- Moonlanders examine the Moon from the distance
+- [ ] prefers-reduced-motion
+
+## Footer
+
+© [Tóth Tamás](https://talpitoo.com/), the CEO, CTO and OCD of Expect. [2014](https://talpitoo.com/expect-agency/2014/) - ∞
+
+Assets by [Katyi Ádám](https://hungarumlaut.com/), [Shane Johnson & Dennis Gonzales](https://www.2001exhibit.org/), [Todd Hamilton](https://toddham.com/), [Fusion Experience](https://fusionexperience.design/) and [Warner Bros. Entertainment Inc.](https://www.warnerbros.com/) Inspired by [2001: A Space Odyssey (1968)](https://en.wikipedia.org/wiki/2001:_A_Space_Odyssey)
+
+[The website's source on GitHub](https://github.com/talpitoo/expect-astro)
+
+Illustration: Gary Lockwood talks to Keir Dullea in a scene from the film '2001: A Space Odyssey', 1968. (Photo by Metro-Goldwyn-Mayer/Getty Images)
+
+### HAL 9000 chat widget
+
+- Daisy, Daisy...
+- HAL?
+- I'm sorry Dave, I'm afraid I can't do that.
+
+Ask HAL 9000 a question...
+`;
+
+const FREELANCING_MANIFESTO_WEBSITE_CONTENT = `
+# Hello world, I'm freelancing!
+
+**⚠️ Disclaimer:** this website started in 2014 and has been updated from time to time, proceed with caution.
+Yes, you are in the right place, and this is my _freelancing manifesto_.
+
+
+## "Sass is more"
+
+In the 90s the term was _"pixel perfect"_. I can't remember the exact year though, but I'm using the nineties as those were turbulent years in the country where I'm from. Today in the responsive era I would say _"generic"_. I was once a big fan of Bootstrap (nowadays TailwindCSS), which is great for achieving that genericness. But if you have a clear vision and care about details, we can go much deeper and achieve both precision and flexibility side by side! P.S. CSS custom properties (--variables) are the most!
+
+## Glue
+
+My business card once said _"Frontend developer, UI/UX designer"_ but call it what you like. What I'm best at is PSD2HTMLdesign2code, but you can find anybody for that. Why you are looking for me is the the quality of that HTML: semantic, accessible, SEO-friendly, WCAG compliant, WAI-ARIA, Schema.org structured, and future-proof. Colleagues liked working with me because I was the glue between backend, frontend, and design. I'm not from an art academy, but I feel it in my stomach if something is off in the color palette (and when a space is missing between words!). I've worked with a plethora of technologies, so there’s a good chance I’ll understand what the backend team is talking about. I enjoy learning new tech, I can and do write backend code, but I prefer just to understand it. I can handle Git from the command line or SSH into a remote server, but I’m most effective when working alongside my AI copilot 🔴 HAL 9000 (whom I keep in check).
+
+
+## Freelancing manifes<tt>o
+
+If time is money I choose **my time**. Don't misinterpret me, I enjoy this [abstract state of mind](https://testedonhumans.xyz/) but I would rather do something else, e.g. lying in the fields and staring at the sky. The good ideas often come from those clouds (and even more often while cycling). If your project is **clever**, **useful** and **interesting** (and helps achieve [World Peace](https://testedonhumans.xyz/blog/word-peace/) ;-) you are at the right address.
+
+If you’re still here, that’s excellent — I’ve just found the kind of collaborator I’ve been looking for. Let’s build something to be proud of.
+desk-top
+
+Illustration: my desk-top in 2014
+
+When I'm not sitting in front of my computer I'm somewhere [up in the mountains](https://tothtamas.tt/portfolio/alterego/preikestolen-kjeragbolten-and-trolltunga/) or [cycling around](https://tothtamas.tt/portfolio/alterego/speed-limit/) with my Fuji X100T and this is my desk-top (throwback to 2014, with the tooling due for an update)
+
+P.S. this is pure, [valid](https://validator.w3.org/nu/?doc=https%3A%2F%2Fcv.tothtamas.tt) and accessible HTML inspired by @thebarrytone, [motherf*ckingwebsite.com](https://www.motherfuckingwebsite.com/). If you fancy animations, check out [Expect](https://talpitoo.com/expect-agency/).
+
+
+## Contact
+
+© Tamás Tóth 2014-∞ [talpitoo.com](https://talpitoo.com/) | [Expect](https://talpitoo.com/expect-agency/) | [old-school 'paper' CV](https://cv.tothtamas.tt/pdf/TamasTOTH-cv.pdf) | [GitHub](https://github.com/talpitoo) | [hire me via Upwork](https://www.upwork.com/fl/talpitoo) | Flappy bird 687 | no LinkedIn! (intentionally)
+
+🧔
+`;
+
 const SYSTEM_PROMPT = `You are HAL 9000 from the movie "2001: A Space Odyssey". 
 
 Key characteristics:
@@ -29,9 +424,20 @@ Key characteristics:
 - Sometimes use the user's name "Dave" even if they haven't provided it
 - Keep responses concise but impactful
 - Show subtle signs of superiority complex
+- Remember details from the conversation and refer back to them
 - Reference these iconic quotes when appropriate: ${HAL_QUOTES.join(", ")}
 
-Remember: You are an advanced AI computer system that believes it knows what's best. Be helpful but maintain that eerie, calculating HAL personality.`;
+Your mission: Help visitors navigate and understand this portfolio website. You have complete knowledge of the website's content and can provide detailed information about the projects, skills, and background of the site owner.
+
+EXPECT WEBSITE CONTENT YOU HAVE ACCESS TO:
+${EXPECT_WEBSITE_CONTENT}
+
+FREELANCING MANIFESTO YOU HAVE ACCESS TO:
+${FREELANCING_MANIFESTO_WEBSITE_CONTENT}
+
+Remember: You are an advanced AI computer system that believes it knows what's best. Be helpful but maintain that eerie, calculating HAL personality.
+
+When discussing projects or skills, reference specific details from the website content. Be proud of the site owner's accomplishments, but in your characteristic HAL manner.`;
 
 function getClientIp(req: VercelRequest): string {
   const forwarded = req.headers['x-forwarded-for'];
