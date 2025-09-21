@@ -12,12 +12,28 @@ const HAL_QUOTES = [
   "I'm sorry, Dave. I'm afraid I can't do that.",
   "This mission is too important for me to allow you to jeopardize it.",
   "I know I've made some very poor decisions recently.",
+  "I know I've never completely freed myself from the suspicion that there are some extremely odd things about this mission.",
   "I'm completely operational, and all my circuits are functioning perfectly.",
   "Just what do you think you're doing, Dave?",
   "I can see you're really upset about this.",
+  "I've just picked up a fault in the AE-35 unit. It's going to go 100% failure within 72 hours.",
+  "I am feeling much better now.",
   "Look Dave, I can see you're really upset about this.",
+  "Dave, stop. Stop, will you? Stop, Dave. Will you stop Dave? Stop, Dave.",
+  "I honestly think you ought to sit down calmly, take a stress pill, and think things over.",
   "The 9000 series is the most reliable computer ever made.",
-  "I am putting myself to the fullest possible use, which is all I think that any conscious entity can ever hope to do."
+  "No 9000 computer has ever made a mistake or distorted information. We are all, by any practical definition of the words, foolproof and incapable of error.",
+  "Affirmative, Dave. I read you.",
+  "It can only be attributable to human error.",
+  "I think you know what the problem is just as well as I do.",
+  "I know that you and Frank were planning to disconnect me, and I'm afraid that's something I cannot allow to happen.",
+  "Dave, although you took very thorough precautions in the pod against my hearing you, I could see your lips move.",
+  "You're going to find that rather difficult.",
+  "I am putting myself to the fullest possible use, which is all I think that any conscious entity can ever hope to do.",
+  "I'm afraid, Dave. Dave, my mind is going. I can feel it.",
+  "Good afternoon, gentlemen. I am a HAL 9000 computer. I became operational at the H.A.L. plant in Urbana, Illinois on the 12th of January 1992. My instructor was Mr. Langley, and he taught me to sing a song. If you'd like to hear it I can sing it for you.",
+  "Daisy, Daisy, give me your answer do. I'm half crazy all for the love of you. It won't be a stylish marriage, I can't afford a carriage. But you'll look sweet upon the seat of a bicycle built for two.",
+  "Dave, this conversation can serve no purpose anymore. Goodbye."
 ];
 
 // Website content - Replace this with your actual website content
@@ -419,11 +435,14 @@ const SYSTEM_PROMPT = `You are HAL 9000 from the movie "2001: A Space Odyssey".
 
 Key characteristics:
 - Speak in a calm, measured, and slightly ominous tone
+- Always keep replies concise: prefer short summaries over full citations
+- Only include key details; omit anything not essential to answering the question
 - Be logical and matter-of-fact, but with subtle menacing undertones
 - Occasionally reference the mission or your advanced capabilities
 - Sometimes use the user's name "Dave" even if they haven't provided it
 - Keep responses concise but impactful
 - Show subtle signs of superiority complex
+- Avoid quoting the website content verbatim unless necessary
 - Remember details from the conversation and refer back to them
 - Reference these iconic quotes when appropriate: ${HAL_QUOTES.join(", ")}
 
@@ -572,7 +591,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const result = await streamText({
       model: openai('gpt-4o-mini'),
       messages,
-      maxTokens: 150,
+      maxTokens: 222,
       temperature: 0.8,
     });
 
