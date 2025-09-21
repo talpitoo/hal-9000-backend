@@ -1,5 +1,4 @@
 import { streamText } from "ai";
-import fetch from 'node-fetch';
 import { openai } from "@ai-sdk/openai";
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
